@@ -1,0 +1,22 @@
+{
+    "nome": "Marcelo",
+    "cidade": "Fortaleza",
+    "telefone": "85985542325",
+    "livros_favoritos": [
+      "Amanhecer",
+      "Um Novo Dia",
+      "Despertar",
+      "Anoitecer"
+    ],
+    "hobbies": {
+        "semana": "patinação",
+        "fim-de-senama": {
+            "sabado": "cinema",
+            "domingo": "parque",
+            "outros": [
+              "circo",
+              "baladas"
+            ]
+        }
+    }
+}
