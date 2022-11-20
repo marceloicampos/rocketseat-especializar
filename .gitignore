@@ -25,6 +25,23 @@ coverage
 # nyc test coverage
 .nyc_output
 
+# testing
+/coverage
+
+# production
+/build
+
+# Stores VSCode versions used for testing VSCode extensions or similar
+.vscode/
+.vscode/*.*
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
@@ -40,6 +57,8 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+/.pnp
+.pnp.js
 
 # TypeScript v1 declaration files
 typings/
