@@ -10,10 +10,10 @@
     ],
     "hobbies": {
         "semana": "patinação",
-        "fim-de-senama": {
-            "sabado": "cinema",
-            "domingo": "parque",
-            "outros": [
+        "fim-de-semana": {
+            "sab": "cinema",
+            "dom": "parque",
+            "feriados": [
               "circo",
               "baladas"
             ]
