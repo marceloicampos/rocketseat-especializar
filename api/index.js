@@ -17,7 +17,7 @@ app.route('/').get((req, res) => {
 })
 // rota para localhost:3000/ ou rota raiz
 // .get é método buscar / pegar
-// req de requisão e res de resposta
+// req de requisição e res de resposta
 // res.send == enviar uma resposta
 // para o server e inicie novamente
 
@@ -28,7 +28,7 @@ app.route('/sobre').get((req, res) => {
 
 // middleware JSON
 app.use(express.json())
-// abra o insomia para executar os métodos
+// abra o insomnia para executar os métodos
 
 // método post == enviar informação
 app.route('/').post((req, res) => {
