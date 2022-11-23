@@ -12,6 +12,10 @@ app.listen(3000, () => {
 // escutando na porta 3000
 // para iniciar  o servidor, é só digitar node index.js ou node .
 
+// middleware JSON
+app.use(express.json())
+// abra o insomnia para executar os métodos http
+
 app.route('/').get((req, res) => {
     res.send('Hello World')
 })
@@ -21,19 +25,21 @@ app.route('/').get((req, res) => {
 // res.send == enviar uma resposta
 // para o server e inicie novamente
 
-app.route('/sobre').get((req, res) => {
-    res.send('Sobre Mim')
-    res.send(req.query.name)
+app.route('/').post((req, res) => {
+    const { nome, cidade, livros } = req.body
+    // res.send(req.body)
+    res.send(`Olá ${nome} de ${cidade}. Seu livro favorito é ${livros[0]}.`)
+    console.log(req.body)
 })
 
-// middleware JSON
-app.use(express.json())
-// abra o insomnia para executar os métodos
+app.route('/sobre').get((req, res) => {
+    res.send('Sobre Mim')
+})
 
 // método post == enviar informação
 app.route('/').post((req, res) => {
-    res.send(req.body)
-    console.log(req.body)
+    res.send(req.body.content)
+    console.log(req.body.content)
 })
 
 // método put == editar informação
