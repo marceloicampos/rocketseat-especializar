@@ -25,6 +25,7 @@ app.route('/').get((req, res) => {
 // res.send == enviar uma resposta
 // para o server e inicie novamente
 
+// Body Params
 app.route('/').post((req, res) => {
     const { nome, cidade, livros } = req.body
     // res.send(req.body)
@@ -37,10 +38,14 @@ app.route('/sobre').get((req, res) => {
 })
 
 // Route Params
-
 app.route('/params').get((req, res) => res.send('Rota Params'))
 app.route('/params/:var').get((req, res) => res.send(req.params.var))
 app.route('/params/id/:nome').get((req, res) => res.send(req.params.nome))
+
+// Query Params
+// app.route('/query').get((req, res) => res.send('Rota Query'))
+app.route('/query').get((req, res) => res.send(req.query.nome))
+app.route('/query/about/user').get((req, res) => res.send(req.query))
 
 // método post == enviar informação
 app.route('/').post((req, res) => {
