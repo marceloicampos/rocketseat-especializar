@@ -36,6 +36,12 @@ app.route('/sobre').get((req, res) => {
     res.send('Sobre Mim')
 })
 
+// Route Params
+
+app.route('/params').get((req, res) => res.send('Rota Params'))
+app.route('/params/:var').get((req, res) => res.send(req.params.var))
+app.route('/params/id/:nome').get((req, res) => res.send(req.params.nome))
+
 // método post == enviar informação
 app.route('/').post((req, res) => {
     res.send(req.body.content)
