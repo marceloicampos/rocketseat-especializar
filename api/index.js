@@ -25,16 +25,16 @@ app.route('/').get((req, res) => {
 // res.send == enviar uma resposta
 // para o server e inicie novamente
 
+app.route('/sobre').get((req, res) => {
+    res.send('Sobre Mim')
+})
+
 // Body Params
-app.route('/').post((req, res) => {
+app.route('/body').post((req, res) => {
     const { nome, cidade, livros } = req.body
     // res.send(req.body)
     res.send(`Olá ${nome} de ${cidade}. Seu livro favorito é ${livros[0]}.`)
     console.log(req.body)
-})
-
-app.route('/sobre').get((req, res) => {
-    res.send('Sobre Mim')
 })
 
 // Route Params
