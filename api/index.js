@@ -1,3 +1,7 @@
+const axios = require('axios')
+// acima estamos instanciando o axios
+// e armazenando na constante axios
+
 const express = require('express')
 // acima estamos instanciando o express
 // e armazenando na constante express
@@ -69,4 +73,23 @@ app.route('/autor/:id').delete((req, res) => {
     id = req.params.id
     res.send(id)
     console.log(req.params.id)
+})
+
+// ############################################
+// Api GitHub Users com Redirect do Express e
+// com get do Axios. Nota: o express não consegue
+// "consumir" APIs externas, então usamos o Axios
+// https://docs.github.com/pt/rest/overview/resources-in-the-rest-api
+// https://api.github.com/
+
+app.route('/github/users/marceloicampos').get((req, res) => {
+    res.redirect('https://api.github.com/users/marceloicampos')
+})
+
+
+app.route('/github').get((req, res) => {
+    axios
+        .get('https://api.github.com/users/marceloicampos')
+        .then(result => res.send(`<img src="${result.data.avatar_url}"/>`))
+        .catch(error => console.log(error))
 })
