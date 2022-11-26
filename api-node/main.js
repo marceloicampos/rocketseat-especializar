@@ -8,8 +8,8 @@ function getUsers() {
         .catch(error => console.error(error))
 }
 
-function getUser() {
-    fetch(`${url}/1`)
+function getUser(id) {
+    fetch(`${url}/${id}`)
         .then(response => response.json())
         .then(data => {
             userName.textContent = data.name
@@ -24,11 +24,11 @@ function addUser(newUser) {
         method: 'POST',
         body: JSON.stringify(newUser),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json; charset=UTF-8'
         }
     })
         .then(response => response.json())
-        .then(data => (alertApi.textContent = data))
+        .then(data => (alertApiPost.textContent = data))
         .catch(error => console.error(error))
 }
 
@@ -38,6 +38,26 @@ const newUser = {
     city: 'United States'
 }
 
-addUser(newUser)
+function updateUser(id, updatedUser) {
+    fetch(`${url}/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(updatedUser),
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        }
+    })
+        .then(response => response.json())
+        .then(data => (alertApiPut.textContent = data))
+        .catch(error => console.error(error))
+}
+
+const updatedUser = {
+    name: 'Jakeliny Gracielly',
+    avatar: 'https://picsum.photos/200/300',
+    city: 'Paraná'
+}
+
 getUsers()
-getUser()
+getUser(1)
+addUser(newUser)
+updateUser(1, updatedUser)
