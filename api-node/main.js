@@ -57,7 +57,20 @@ const updatedUser = {
     city: 'Paraná'
 }
 
-getUsers()
-getUser(1)
+function deleteUser(id) {
+    fetch(`${url}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        }
+    })
+        .then(response => response.json())
+        .then(data => (alertApiDelete.textContent = data))
+        .catch(error => console.error(error))
+}
+
 addUser(newUser)
 updateUser(1, updatedUser)
+getUsers()
+getUser(1)
+deleteUser(11)
