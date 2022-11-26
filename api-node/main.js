@@ -1,4 +1,4 @@
-const url = 'http://localhost:5500/api'
+const url = 'http://localhost:5000/api'
 
 function getUsers() {
     fetch(url)
@@ -19,5 +19,25 @@ function getUser() {
         .catch(error => console.error(error))
 }
 
+function addUser(newUser) {
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(newUser),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data => (alertApi.textContent = data))
+        .catch(error => console.error(error))
+}
+
+const newUser = {
+    name: 'Lorem PicSum',
+    avatar: 'https://picsum.photos/200/300',
+    city: 'United States'
+}
+
+addUser(newUser)
 getUsers()
 getUser()

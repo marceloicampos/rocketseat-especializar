@@ -2,7 +2,7 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
-app.listen(5500, () => console.log('Rodando na porta 5500'))
+app.listen(5000, () => console.log('Rodando na porta 5000'))
 app.use(cors())
 app.use(express.json())
 
