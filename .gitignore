@@ -121,3 +121,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Projects NO GITHUB
+api-serie-node/
