@@ -10,4 +10,21 @@ function getUsers() {
         .catch(error => console.error(error))
 }
 
+function addNewUser(newUser) {
+    axios
+        .post(url, newUser)
+        .then(response => {
+            // console.log(response.data)
+            alertApiPost.textContent = response.data
+        })
+        .catch(error => console.error(error))
+}
+
+const newUser = {
+    name: 'Jakeliny Gracielly',
+    avatar: 'https://picsum.photos/200/300',
+    city: 'São Paulo'
+}
+
 getUsers()
+addNewUser(newUser)
