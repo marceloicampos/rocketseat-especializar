@@ -76,5 +76,5 @@ app.route('/api/:id').put((req, res) => {
 app.route('/api/:id').delete((req, res) => {
     const userId = req.params.id
     users = users.filter(user => Number(user.id) !== Number(userId))
-    res.json('Deleted User')
+    res.json(`Deleted User: DELETE ${userId}`)
 })
