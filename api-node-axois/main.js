@@ -30,7 +30,7 @@ function getUser(id) {
     axios
         .get(`${url}/${id}`)
         .then(response => {
-            userID.textContent = response.data.id
+            userID.textContent = `ID: ${response.data.id}`
             userName.textContent = response.data.name
             userCity.textContent = response.data.city
             userAvatar.src = response.data.avatar
@@ -38,6 +38,22 @@ function getUser(id) {
         .catch(error => console.error(error))
 }
 
-getUsers()
+function updateUser(id, userUpdated) {
+    axios
+        .put(`${url}/${id}`, userUpdated)
+        .then(response => {
+            alertApiPut.textContent = response.data
+        })
+        .catch(error => console.error(error))
+}
+
+const userUpdated = {
+    name: 'Marcelo Update',
+    avatar: 'https://picsum.photos/200/300',
+    city: 'Recife'
+}
+
 addNewUser(newUser)
 getUser(1)
+getUsers()
+updateUser(2, userUpdated)
