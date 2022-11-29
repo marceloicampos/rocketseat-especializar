@@ -46,7 +46,7 @@ app.route('/api').post((req, res) => {
         avatar: req.body.avatar,
         city: req.body.city
     })
-    res.json('Saved User')
+    res.json(`Saved User: POST ${lastId + 1}`)
 })
 
 // PUT ###########################################################
@@ -69,7 +69,7 @@ app.route('/api/:id').put((req, res) => {
         }
         return user
     })
-    res.json('Updated User')
+    res.json(`Updated User: PUT ${userId}`)
 })
 
 // DELETE ###########################################################
