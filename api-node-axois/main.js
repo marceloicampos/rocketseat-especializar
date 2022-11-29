@@ -53,7 +53,17 @@ const userUpdated = {
     city: 'Recife'
 }
 
+function deleteUser(id) {
+    axios
+        .delete(`${url}/${id}`)
+        .then(response => {
+            alertApiDelete.textContent = response.data
+        })
+        .catch(error => console.error(error))
+}
+
 addNewUser(newUser)
 getUser(1)
 getUsers()
 updateUser(2, userUpdated)
+deleteUser(3)
