@@ -16,4 +16,6 @@ router.post('/register', async (req, res) => {
 })
 
 module.exports = app => app.use('/auth', router)
+// acima estamos recuperando o app como um parâmetro e retornando a adição de uma rota para o app
+// a rota auth/register vai chamar de registro e criação do usuário
 // acima indica ==> http://localhost:3000/auth/register

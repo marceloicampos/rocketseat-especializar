@@ -5,6 +5,7 @@ const userModel = require('./models/user')
 app.use(express.json())
 
 require('./controllers/authController')(app)
+// acima estamos referenciando o controle de autenticação, com o (app) estamos repassando o app (principal e único) para o controller
 
 app.listen(3000, () => console.log('Express Rodando na porta 3000'))
 app.get('/', (req, res) => res.send('Server Rodando na Porta 3000, com Mongo DB Atlas. Usuários Cadastrados: localhost:3000/users'))
