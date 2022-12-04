@@ -27,5 +27,9 @@ UserSchema.pre('save', async function (next) {
     this.password = hash
     next()
 })
+// https://www.npmjs.com/package/bcrypt
+
 const User = mongoose.model('User', UserSchema)
+// (nome do model, schema do model)
+// https://mongoosejs.com/docs/guide.html
 module.exports = User
