@@ -124,3 +124,4 @@ dist
 
 # Files NO GITHUB
 api-serie-node/src/config/
+aulas/nodejs-07-test-sequelize/config/
