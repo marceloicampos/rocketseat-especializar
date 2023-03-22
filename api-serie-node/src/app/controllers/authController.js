@@ -6,7 +6,7 @@ const User = require('../models/user')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const authConfig = require('../config/auth.json')
+const authConfig = require('../../config/auth.json')
 // primeiro buscamos o express para usar rotas
 // depois Model User para as ações de cadastro e consulta de usuários
 // depois chamamos o método Router do Express para definir as rotas para os registros e autenticação de usuários

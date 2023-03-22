@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const userModel = require('./models/user')
+const userModel = require('./app/models/user')
 // chamado o module express
 // criando variável app que recebe o express()
 // criando variável userModel que recebe o module user
@@ -8,8 +8,8 @@ const userModel = require('./models/user')
 app.use(express.json())
 // usando o parse do express para o json
 
-require('./controllers/authController')(app)
-require('./controllers/projectController')(app)
+require('./app/controllers/authController')(app)
+require('./app/controllers/projectController')(app)
 // estamos requerendo o authController e
 // estamos referenciando o controle de autenticação com o (app) e estamos repassando para os controllers ao nosso app
 

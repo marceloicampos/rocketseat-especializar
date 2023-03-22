@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const authConfig = require('../config/auth.json')
+const authConfig = require('../../config/auth.json')
 // acima estamos chamando a dependência jwt e a chave de autenticação auth.json
 
 module.exports = (req, res, next) => {

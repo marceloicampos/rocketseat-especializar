@@ -1,4 +1,4 @@
-const mongoose = require('../database')
+const mongoose = require('../../database')
 // chamado o module mongoose pelo médulo do database já criado para criar o model
 
 const bcrypt = require('bcryptjs')
