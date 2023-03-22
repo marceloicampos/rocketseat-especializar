@@ -9,11 +9,16 @@ app.use(express.json())
 // usando o parse do express para o json
 
 require('./controllers/authController')(app)
+require('./controllers/projectController')(app)
 // estamos requerendo o authController e
-// estamos referenciando o controle de autenticação com o (app) e estamos repassando para o controller ao nosso app (principal e único)
+// estamos referenciando o controle de autenticação com o (app) e estamos repassando para os controllers ao nosso app
 
-app.listen(3000, () => console.log('Express Rodando na porta 3000'))
-app.get('/', (req, res) => res.send('Server Rodando na Porta 3000, com Mongo DB Atlas. Usuários Cadastrados: localhost:3000/users'))
+app.listen(3000, () => console.log('Node Express Server on-line on port 3000'))
+app.get('/', (req, res) =>
+    res.send(
+        '<head><style>body{background-color:black}p{color: #9400D3; font-size: 1.5em;padding:32px}</style></head><p>Node Express Server on-line on port 3000, with Mongo DB Atlas. Users on DB: <a href="http://localhost:3000/users">localhost:3000/users</a></p>'
+    )
+)
 app.get('/users', async (request, response) => {
     const users = await userModel.find({})
     try {
