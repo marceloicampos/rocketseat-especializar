@@ -8,8 +8,10 @@ const userModel = require('./app/models/user')
 app.use(express.json())
 // usando o parse do express para o json
 
-require('./app/controllers/authController')(app)
-require('./app/controllers/projectController')(app)
+require('./app/controllers/index.js')(app)
+// importamos apenas o controller index e este importa todos os controllers
+// require('./app/controllers/authController')(app)
+// require('./app/controllers/projectController')(app)
 // estamos requerendo o authController e
 // estamos referenciando o controle de autenticação com o (app) e estamos repassando para os controllers ao nosso app
 
