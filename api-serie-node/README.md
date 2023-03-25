@@ -5,3 +5,6 @@
 -   npm i bcryptjs
 -   npm i jsonwebtoken
 -   npm i nodemon -g
+-   npm i nodemailer
+-   npm i nodemailer-express-handlebars
+-   https://mailtrap.io/
