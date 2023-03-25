@@ -7,12 +7,16 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const authConfig = require('../../config/auth.json')
+const crypto = require('crypto')
+const mailer = require('../../modules/mailer')
 // primeiro buscamos o express para usar rotas
 // depois Model User para as ações de cadastro e consulta de usuários
 // depois chamamos o método Router do Express para definir as rotas para os registros e autenticação de usuários
 // usamos bcrypt para retorna senhas criptografadas
 // usamos a jwt para criar token de autenticação
 // importamos o hash secret para geração de token
+// chamamos o crypto para gerar um token de recuperação de senha
+// chamamos o mailer para envio de email de recuperação de senha
 
 router.post('/register', async (req, res) => {
     // estamos criando a rota '/register' que recebe um método post numa função assíncrona para tratar a Promise com await
@@ -64,8 +68,55 @@ router.post('/authenticate', async (req, res) => {
     // nota: a cada nova autenticação geramos um novo token
 })
 
+router.post('/forgot_password', async (req, res) => {
+    const { email } = req.body
+    // capturamos o email da requisição do body
+    try {
+        const user = await User.findOne({ email })
+        // coletamos a informação única do email retirada do Banco User
+        if (!user) return res.status(400).send({ error: 'User not found' })
+        // se o user não existir retorne "usuário não encontrado"
+        const token = crypto.randomBytes(20).toString('hex')
+        // estamos criando um token com randomBytes de 20 rodadas e passando ele para string hexadecimal
+        // o lugar mais recomendado da para salvar o token é associado a o usuário ou junto ao model user
+        const now = new Date()
+        // estamos criando uma data como data agora
+        now.setHours(now.getHours() + 1)
+        // pegamos a data agora, setamos para horas e depois pegamos o valor da horas e somamos mais
+        // esse será o tempo de expiração do token (expiração de 1 hora)
+        await User.findByIdAndUpdate(user.id, {
+            // vamos atualizar os campos faltantes dos usuários cadastrados
+            $set: {
+                passwordResetToken: token,
+                passwordResetExpires: now
+            }
+        })
+        // console.log(token, now)
+        mailer.sendMail(
+            {
+                to: email,
+                from: 'api-node@api-node.com',
+                template: 'auth/forgot_password',
+                context: { token }
+            },
+            error => {
+                if (error) {
+                    console.log(error)
+                    return res.status(400).send({ error: 'Can not send forgot password email' })
+                } else {
+                    return res.send('Send email OK')
+                }
+            }
+        )
+    } catch (error) {
+        res.status(400).send({ error: 'Error on Forgot Password, please try again' })
+        // se der erro, retornamos o erro com método status 400 e a mensagem de erro para tentar novamente
+    }
+})
+
 module.exports = app => app.use('/auth', router)
 // acima estamos recuperando o app como um parâmetro e retornando a adição de uma rota para o app
 // a rota auth/register vai chamar o registro e a função de criação do usuário
 // acima indica ==> http://localhost:3000/auth/register
 // acima indica ==> http://localhost:3000/auth/authenticate
+// acima indica ==> http://localhost:3000/auth/forgot_password
