@@ -17,7 +17,7 @@ require('./app/controllers/index')(app)
 
 app.get('/', (req, res) =>
     res.send(
-        '<head><style>body{background-color:black}p{color: #9400D3; font-size: 1.5em;padding:32px}</style></head><p>Node Express Server on-line on port 3000, with Mongo DB Atlas. Users on DB: <a href="http://localhost:3000/users">localhost:3000/users</a></p>'
+        '<head><style>body{background-color:black}p{color: #9400D3; font-size: 1.5em;padding:32px}</style></head><p>Node Express Server on-line on port 3000, with Mongo DB Atlas.</p><p>Users on DB: <a href="http://localhost:3000/users">http://localhost:3000/users</a></p><p>Register User on DB: <a href="http://localhost:3000/auth/register">http://localhost:3000/auth/register</a></p><p>Authenticate User on DB: <a href="http://localhost:3000/auth/authenticate">http://localhost:3000/auth/authenticate</a></p><p>Forgot Password Users on DB: <a href="http://localhost:3000/auth/forgot_password">http://localhost:3000/auth/forgot_password</a></p><p>Reset Password Users on DB: <a href="http://localhost:3000/auth/reset_password">http://localhost:3000/auth/reset_password</a></p><p>middlewares Auth on DB: <a href="http://localhost:3000/projects">http://localhost:3000/projects</a></p>'
     )
 )
 app.get('/users', async (request, response) => {
