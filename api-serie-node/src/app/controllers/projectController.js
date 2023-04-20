@@ -9,7 +9,7 @@ router.use(authMiddleware)
 // estamos usando o auth middleware na interceptação de rota
 
 router.get('/', (req, res) => {
-    res.send({ ok: true, user: req.userId })
+    res.send({ ok: true, userID: req.userId, email: req.body.email })
 })
 // estamos criando a rota '/' que recebe um método get com res.send ok: true e acesso direto a userId
 

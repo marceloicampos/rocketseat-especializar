@@ -9,8 +9,8 @@ module.exports = (req, res, next) => {
     // se o token não foi informado responda com status 401 e mensagem 'token nao informado'
     const parts = authHeader.split(' ')
     // estamos dividindo o token em 2 partes (Bearer de um lado e token do outro lado)
-    if (!parts.length === 2) return res.status(401).send({ error: 'Token Error' })
-    // se o token não estiver divido em 2 partes (Bearer + numeração do token) responda com status 401 e mensagem 'erro de token'
+    if (parts.length !== 2) return res.status(401).send({ error: 'Token Error' })
+    // se o tamanho do array do token for diferente 2 (Bearer + numeração do token) responda com status 401 e mensagem 'erro de token'
     const [scheme, token] = parts
     // usando desestruturação da arrays coletamos Bearer e o token
     if (!/^Bearer$/i.test(scheme)) return res.status(401).send({ error: 'Bad Formatted Token ' })
