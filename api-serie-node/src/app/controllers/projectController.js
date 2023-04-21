@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const authMiddleware = require('../middlewares/auth')
+const userModel = require('../../app/models/user')
 // primeiro buscamos o express para usar rotas
 // depois chamamos o método Router do Express para definir as rotas para os registros e autenticação de usuários
 // depois chamamos o auth middleware
@@ -8,8 +9,10 @@ const authMiddleware = require('../middlewares/auth')
 router.use(authMiddleware)
 // estamos usando o auth middleware na interceptação de rota
 
-router.get('/', (req, res) => {
-    res.send({ ok: true, userID: req.userId, email: req.body.email })
+router.get('/', async (req, res) => {
+    const _id = req.userId
+    const users = await userModel.findById({ _id })
+    res.send({ ok: true, userID: _id, email: users.email })
 })
 // estamos criando a rota '/' que recebe um método get com res.send ok: true e acesso direto a userId
 
