@@ -85,7 +85,7 @@ router.post('/forgot_password', async (req, res) => {
         // pegamos a data agora, setamos para horas e depois pegamos o valor da horas e somamos mais
         // esse será o tempo de expiração do token (expiração de 1 hora)
         await User.findByIdAndUpdate(user.id, {
-            // vamos atualizar os campos faltantes dos usuários cadastrados
+            // vamos atualizar os campos faltantes dos usuários cadastrados com o token de reset de senha (gerado acima em token) e o tempo de expiração do token (que é de 1 hora)
             $set: {
                 passwordResetToken: token,
                 passwordResetExpires: now
@@ -93,9 +93,11 @@ router.post('/forgot_password', async (req, res) => {
         })
         // console.log(token, now)
         mailer.sendMail(
+            // abaixo temos a especificação da api da ferramenta de envio de email
             {
                 to: email,
                 from: 'api-node@api-node.com',
+                subject: 'Recuperação de Senha',
                 template: 'auth/forgot_password',
                 context: { token }
             },
@@ -115,7 +117,7 @@ router.post('/forgot_password', async (req, res) => {
 
 router.post('/reset_password', async (req, res) => {
     const { email, token, password } = req.body
-    // capturamos o email da requisição do body
+    // capturamos (da requisição do body) o email, o token de reset de senha e a nova senha que será alterada
     try {
         const user = await User.findOne({ email }).select('+passwordResetToken passwordResetExpires')
         if (!user) return res.status(400).send({ error: 'User not found' })
