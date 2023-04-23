@@ -1,7 +1,5 @@
 const mongoose = require('../../database')
 // chamado o module mongoose pelo médulo do database já criado para criar o model
-const bcrypt = require('bcryptjs')
-// importando a biblioteca bcrypt
 
 const TaskSchema = new mongoose.Schema({
     // criando um schema para as Tarefas, chamamos ele de TaskSchema e instanciamos um objeto mongoose.Schema
@@ -22,11 +20,11 @@ const TaskSchema = new mongoose.Schema({
     assignedTo: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        require: true
     },
     completed: {
         type: Boolean,
-        required: true,
+        require: true,
         default: false
     },
     createdAt: {
