@@ -2,7 +2,7 @@
 
 > Para utilizar esse projeto:
 
--   instale o vscode para usar o projeto
+-   instale o vscode para utilizar o projeto
 -   instale o git para clonar o projeto
 -   instale o nodejs lts para usar o back-end
 -   instale o insomnia para usar a api
@@ -60,7 +60,7 @@ npm run dev
 -   npm i mongoose
 -   npm i bcryptjs
 -   npm i jsonwebtoken
--   npm i nodemon -g
+-   npm i nodemon --save-dev
 -   npm i nodemailer
 -   npm i nodemailer-express-handlebars
 
@@ -88,9 +88,9 @@ npm run dev
 
 > http://localhost:3000/auth/authenticate
 
--   Utilizamos para a referida rota o método de autenticação JWT - Json Web Token - e como nossa aplicação não tem front end vamos utilizar o programa insomnia para efetuar um post na rota auth/authenticate e enviar dados necessário para identificação do usuário que são e-mail e senha para efetuarmos geração de um web token para o usuário
+-   Utilizamos para a referida rota com a ferramenta de autenticação JWT - Json Web Token - e como nossa aplicação não tem front end vamos utilizar o programa insomnia para efetuar um post na rota auth/authenticate e enviar dados necessário para identificação do usuário que são e-mail e senha para efetuarmos geração de um web token para o usuário
 
--   a rota a ser utilizada será http://localhost:3000/auth/authenticate com método POST e com o conteúdo em JSON conforme abaixo. Nota: o email e a senha deve ser as mesma conforme registradas na rota anterior, caso contrário vamos tomar um erro.
+-   a rota a ser utilizada será http://localhost:3000/auth/authenticate com método POST e com o conteúdo em JSON conforme abaixo. Nota: o email e a senha deve ser os mesma conforme registrados na rota anterior, caso contrário vamos tomar um erro.
 
 ```
  {
@@ -105,7 +105,27 @@ npm run dev
 
 > http://localhost:3000/auth/forgot_password
 
+-   Utilizamos para a referida rota com a ferramenta crypto do próprio node para geração de um token único com expiração de 1 hora
+
+-   a rota a ser utilizada será http://localhost:3000/auth/forgot_password com método POST e com o conteúdo em JSON conforme abaixo.
+
+{
+"email": "seu@email"
+}
+
+-   Será informado o envio de email OK e no mailtrap poderemos verificar o recebimento do e-mail com o token para reset de senha
+
 > http://localhost:3000/auth/reset_password
+
+a rota a ser utilizada será http://localhost:3000/auth/reset_password com método POST e com o conteúdo em JSON conforme abaixo.
+
+{
+"email": "seu@email",
+"token": "token informado no e-mail",
+"password" : "sua nova senha"
+}
+
+-   Passamos o email o token recebido no email e informamos a nova senha, ao final se tudo certo seremos informados do Reset Password OK
 
 > http://localhost:3000/projects
 
@@ -113,12 +133,14 @@ npm run dev
 
 ```
 No Insomnia abra nova rota http://localhost:3000/projects com método GET
-Vá em Headers
-Add Authorization >>> como chave >>> Authorization
+Vá em aba Headers e adicione
+Authorization >>> como chave >>> Authorization
 Bearer "token gerado" >>> como valor >>> Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6Ikp9.eyJwYXJhbXMiOnsiaWQiOiI2NDNmZmI4MGI5NmJiOWNlNGQ4MTg4YWQifSwiaWF0IjoxNjgyMDAyMDIxLCJleHAiOjE2ODIwODg0MjF9.SunOKgmWLvYt-PKsVwVb7oiZd0ViDxyY0i0W6Qc
 Clique em em SEND
-Então recebemos OK como True se usuário estiver autenticado na rota projeto
+Então recebemos OK como True se usuário estiver autenticado na rota projeto além do Id do Usuário e o email do usuário autenticado
 ```
 
--   A parte acima demonstra que o usuário está autenticado para utilizar a rota http://localhost:3000/projects, inclusive retornando o User ID.
--   Para tanto vamos utilizamos um middlewares Auth que vai "Intermediar" uma "Autorização, este está localizado na pasta middlewares auth.js
+-   A parte acima demonstramos que o usuário está autenticado para utilizar a rota http://localhost:3000/projects, inclusive retornando o User ID e o email
+-   Para tanto vamos utilizamos um middlewares Auth que vai "Intermediar" uma "Autorização por meio da troca de informação entre o id do usuário e o token informado, este está arquivo de intermediação está localizado na pasta middlewares auth.js
+
+> > > UM USUÁRIO PODE CRIAR VÁRIOS PROJECTS E CADA PROJECTS PODERÁ TER VÁRIAS TASKS
