@@ -60,7 +60,6 @@ router.get('/list/:projectId', async (req, res) => {
 router.put('/update/:projectId', async (req, res) => {
     try {
         const { title, description, tasks } = req.body
-        // const _id = req.userId
         const project = await Project.findByIdAndUpdate(
             req.params.projectId,
             {
