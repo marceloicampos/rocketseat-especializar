@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Transition</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                height: 80vh;
+            }
+            .box-red,
+            .box-green,
+            .box-blue,
+            .box-yellow {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .box-red {
+                background-color: red;
+                transition: background-color, 1s ease-out 2s;
+            }
+            .box-red:hover {
+                background-color: yellow;
+                transition: background-color, 1s;
+                transition-timing-function: ease-in;
+                transition-delay: 2s;
+            }
+            .box-green {
+                background-color: green;
+                transition: all 1s linear 0s;
+            }
+            .box-green:hover {
+                transition: all 1s cubic-bezier(0.29, 1.01, 1, -0.68);
+                background-color: rgb(255, 0, 208);
+                width: 300px;
+                height: 300px;
+                border-radius: 8px;
+            }
+            .box-blue {
+                background-color: blue;
+                transition: width 1s linear 1s;
+            }
+            .box-blue:hover {
+                transition: width 2s ease-out 0s;
+                background-color: rgb(208, 255, 0);
+                width: 350px;
+            }
+            .box-yellow {
+                background-color: yellow;
+                transition: all 2s linear 1s;
+            }
+            .box-yellow:hover {
+                opacity: 0.5;
+                transition: opacity 1s linear 0s;
+                background-color: rgb(253, 128, 10);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box-red"></div>
+        <div class="box-green"></div>
+        <div class="box-blue"></div>
+        <div class="box-yellow"></div>
+    </body>
+</html>

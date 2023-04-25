@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Transition</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                height: 100vh;
+            }
+            .box-red,
+            .box-green,
+            .box-blue {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+            .box-red {
+                background-color: red;
+                transition: background-color, 1s ease-out 2s;
+            }
+            .box-red:hover {
+                background-color: yellow;
+                transition: background-color, 1s;
+                transition-timing-function: ease-in;
+                transition-delay: 2s;
+            }
+            .box-green {
+                background-color: green;
+                transition: all 1s linear 0s;
+            }
+            .box-green:hover {
+                transition: all 1s cubic-bezier(0.29, 1.01, 1, -0.68);
+                background-color: rgb(255, 0, 208);
+                width: 300px;
+                height: 300px;
+                border-radius: 8px;
+            }
+            .box-blue {
+                background-color: blue;
+                transition: all 1s linear 0s;
+            }
+            .box-blue:hover {
+                transition: all 1s cubic-bezier(0.29, 1.01, 1, -0.68);
+                background-color: rgb(208, 255, 0);
+                width: 300px;
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box-red"></div>
+        <div class="box-green"></div>
+        <div class="box-blue"></div>
+        <div>
+            <p>transition-property: all, é usado para aplicar transição em todos os elementos quantificáveis disponíveis e que estejam sofrendo alteração</p>
+        </div>
+    </body>
+</html>

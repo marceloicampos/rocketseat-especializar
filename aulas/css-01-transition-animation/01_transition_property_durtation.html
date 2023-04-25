@@ -8,6 +8,7 @@
         <style>
             body {
                 display: flex;
+                flex-direction: column;
                 justify-content: space-around;
                 align-items: center;
                 height: 100vh;
@@ -26,11 +27,21 @@
                 background-color: yellow;
                 width: 400px;
                 height: 400px;
-                transition: background-color, all 2s;
+                transition-property: background-color, width, height;
+                transition-duration: 2s;
+                /* transition: background-color, all 2s; */
             }
         </style>
     </head>
     <body>
         <div class="box-red"></div>
+        <div>
+            <p>transition-property - é a propriedade css que queremos aplicar a transição</p>
+            <p>transition-duration - é o tempo de duração da transição</p>
+            <p>
+                Somente valores quantificáveis podem ser animados. Isso quer dizer que não é possível fazer uma animação de display indo de none para block, mas
+                sim de opacity de 0 para 1;
+            </p>
+        </div>
     </body>
 </html>

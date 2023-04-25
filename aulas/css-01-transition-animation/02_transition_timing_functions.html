@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Transition</title>
+        <style>
+            .line {
+                width: 100%;
+                background-color: blue;
+                height: 25px;
+                margin-bottom: 10px;
+
+                transition: width;
+                transition-duration: 2s;
+            }
+            body:hover .line {
+                width: 20px;
+                background-color: rgb(0, 255, 20);
+            }
+            .ease {
+                transition-timing-function: ease;
+            }
+            .linear {
+                transition-timing-function: linear;
+            }
+            .ease-in {
+                transition-timing-function: ease-in;
+            }
+            .ease-out {
+                transition-timing-function: ease-out;
+            }
+            .ease-in-out {
+                transition-timing-function: ease-in-out;
+            }
+            body:hover .cube {
+                width: 20px;
+                background-color: rgb(255, 60, 0);
+                transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="line ease"></div>
+        <div class="line linear"></div>
+        <div class="line ease-in"></div>
+        <div class="line ease-out"></div>
+        <div class="line ease-in-out"></div>
+        <div class="line cube"></div>
+        <div>
+            <p>ease - Início lento, rápido e final lento (este é o padrão)</p>
+            <p>linear - Mesma velocidade do início ao fim</p>
+            <p>ease-in - Início lento</p>
+            <p>ease-out - Final lento</p>
+            <p>ease-in-out - Início e fim lentos</p>
+            <p>cubic-bezier(n,n,n,n) - Permite definir seus próprios valores em uma função cubic-bezier</p>
+        </div>
+    </body>
+</html>
