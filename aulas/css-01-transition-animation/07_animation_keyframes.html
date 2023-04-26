@@ -5,9 +5,45 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>CSS Animation</title>
-        <style></style>
+        <style>
+            .ball {
+                width: 100px;
+                height: 100px;
+                border-radius: 100%;
+                background-color: red;
+                position: relative;
+            }
+
+            .ball:hover {
+                animation-name: animation2;
+                animation-duration: 10s;
+            }
+
+            @keyframes animation1 {
+                from {
+                    background-color: blueviolet;
+                }
+                to {
+                    background-color: brown;
+                }
+            }
+            @keyframes animation2 {
+                0% {
+                    background-color: blueviolet;
+                }
+                25% {
+                    background-color: brown;
+                }
+                50% {
+                    background-color: green;
+                }
+                100% {
+                    background-color: yellow;
+                }
+            }
+        </style>
     </head>
     <body>
-        <div></div>
+        <div class="ball"></div>
     </body>
 </html>
