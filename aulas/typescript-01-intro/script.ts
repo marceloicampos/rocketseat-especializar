@@ -161,6 +161,7 @@ printUserId(101)
 
 function useState<T extends number | string = string>() {
   // = string, caso não seja definido o tipo ele será string
+  // NOTA: = string É O MESMO QUE DIZER QUE: caso não escolha number ou string, sempre será string
   let state: T
   function set(newValue: T) {
     state = newValue
@@ -171,17 +172,20 @@ function useState<T extends number | string = string>() {
   return { get, set }
 }
 
+let state = useState()
+console.log(state);
+
 let newStateNumber = useState<number>()
 newStateNumber.set(123)
-newStateNumber.get()
+console.log(newStateNumber.get());
 
 let newStateString = useState<string>()
 newStateString.set('marcelo')
-newStateString.get()
+console.log(newStateString.get())
 
 let newState = useState()
 newState.set('marcelo')
-newState.get()
+console.log(newState.get())
 
 // -------------------------------------------------------------------------
 
@@ -208,15 +212,21 @@ type UserResponse = {
   avatar: string
 }
 
-let userResponse = {
+let userResponse1: UserResponse = {
+  id: 123,
+  userName: 'marcelo',
+  avatar: 'logo'
+}
+
+let userResponse2 = {
   id: 123,
   userName: 'marcelo',
   avatar: 'logo'
 } as UserResponse
 
-userResponse.id
-userResponse.userName
-userResponse.avatar
+userResponse1.id
+userResponse2.userName
+userResponse1.avatar
 
 // -------------------------------------------------------------------------
 
