@@ -63,7 +63,7 @@ console.log('FUNÇÕES COM PARÂMETROS')
 let valor = 0
 
 function add(v) {
-  return valor + v
+    return valor + v
 }
 
 const add10 = add(10)
@@ -78,3 +78,37 @@ function somar(a = valorParams, b = valorParams) {
 console.log(somar())
 
 console.log('---')
+
+console.log('PARÂMETROS REST')
+
+function somarValores(...valores) {
+    let res = 0
+    for (let i = 0; i < valores.length; i++) {
+        res = res + valores[i]
+        // ENTENDA: valores[i] é valor de cada posição do array de valores
+        // a cada iteração
+    }
+    return res
+}
+
+console.log('somarValores > ' + somarValores(10, 5, 2, 15, 8))
+
+function somarOfValores(...valores) {
+    let res = 0
+    for (valor of valores) {
+        res = res + valor
+    }
+    return res
+}
+
+console.log('somarOfValores > ' + somarOfValores(10, 5, 2, 15, 8))
+
+function somarInValores(...valores) {
+    let res = 0
+    for (elemento in valores) {
+        res = res + valores[elemento]
+    }
+    return res
+}
+
+console.log('somarInValores > ' + somarInValores(10, 5, 2, 15, 8))
