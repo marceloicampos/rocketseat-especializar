@@ -81,17 +81,17 @@ console.log('---')
 
 console.log('PARÂMETROS REST')
 
-function somarValores(...valores) {
+function somarValores(a, ...valores) {
     let res = 0
     for (let i = 0; i < valores.length; i++) {
-        res = res + valores[i]
+        res = res + a + valores[i]
         // ENTENDA: valores[i] é valor de cada posição do array de valores
         // a cada iteração
     }
     return res
 }
 
-console.log('somarValores > ' + somarValores(10, 5, 2, 15, 8))
+console.log('somarValores > ' + somarValores(1, 10, 5, 2, 15, 8))
 
 function somarOfValores(...valores) {
     let res = 0
@@ -112,3 +112,67 @@ function somarInValores(...valores) {
 }
 
 console.log('somarInValores > ' + somarInValores(10, 5, 2, 15, 8))
+
+console.log('---')
+
+console.log('FUNÇÕES ANÔNIMAS')
+
+let anonymous = function (an1, an2) {
+    return an1 + an2
+}
+
+console.log(anonymous(10, 5))
+
+let rest = function (...lores) {
+    let res = 0
+    for (let i = 0; i < lores.length; i++) {
+        res = res + lores[i]
+    }
+    return res
+}
+
+console.log(rest(10, 6))
+
+const fun = new Function('vv1', 'vv2', 'return vv1 + vv2')
+// Função construtor
+
+console.log(fun(10, 7))
+
+console.log('---')
+
+console.log('ARROW FUNCTION ou LAMBDAS')
+
+let arrow = (ar1, ar2) => {
+    return ar1 + ar2
+}
+
+console.log(arrow(10, 8))
+
+const simpleArrow = nn => {
+    return nn
+}
+
+console.log(simpleArrow(19))
+
+const simpleSimpleArrow = nnn => nnn + 1
+
+console.log(simpleSimpleArrow(19))
+
+console.log('---')
+
+console.log('FUNÇÕES ANINHADAS')
+
+const somaSoma = (...values) => {
+    const somarSomar = val => {
+        let res = 0
+        for (v of val) {
+            res += v
+        }
+        return res
+    }
+    return somarSomar(values)
+}
+
+console.log(somaSoma(10, 5, 15))
+const itensDeValor = [12, 8, 10]
+console.log(somaSoma(...itensDeValor))
