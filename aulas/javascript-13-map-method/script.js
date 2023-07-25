@@ -24,11 +24,11 @@ el.map((el, i) => {
     console.log(el.innerHTML + ' ' + i)
 })
 
-console.log('---');
+console.log('---')
 
 el.map((el, i) => {
     el.innerHTML = 'Cursos ' + i
-    console.log(el.innerHTML);
+    console.log(el.innerHTML)
 })
 
 console.log('3-------------')
@@ -45,3 +45,17 @@ let num = ['1', '2', '3', '4', '5'].map(converterInt)
 let dob = ['1', '2', '3', '4', '5'].map(dobro)
 console.log(num)
 console.log(dob)
+
+console.log('5-------------')
+
+const num2 = ['1', '2', '3', '4', '5']
+num2.map(e => {
+    console.log(parseInt(e))
+})
+
+console.log('---')
+
+const dob2 = ['1', '2', '3', '4', '5']
+dob2.map(e => {
+    console.log(e * 2)
+})
