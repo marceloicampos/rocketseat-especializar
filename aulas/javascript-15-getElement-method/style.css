@@ -1,4 +1,4 @@
-.curso {
+.cursos {
     display: flex;
     justify-content: center;
     width: 200px;
@@ -9,7 +9,7 @@
     cursor: pointer;
 }
 
-.curso:hover {
+.cursos:hover {
     border-color: #f00;
 }
 

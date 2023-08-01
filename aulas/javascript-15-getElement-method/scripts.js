@@ -9,7 +9,7 @@ console.log(dc1)
 console.log(dc1.id)
 console.log(dc1.innerHTML)
 
-dc1.innerHTML = 'Cursos'
+dc1.innerHTML = 'Curso'
 
 console.log(dc1)
 
