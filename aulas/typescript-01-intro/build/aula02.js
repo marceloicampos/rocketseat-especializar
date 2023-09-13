@@ -1,3 +1,4 @@
+"use strict";
 var nome = 'Marcelo';
 var canal = 'CursoTS';
 var curso = 'Typescript';
