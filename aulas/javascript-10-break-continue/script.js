@@ -14,19 +14,26 @@ while (n<=max) {
 
 console.log('---');
 
-let m = 1
+let m = 0
 let pax = 11
+let impares = 0
 let pares = 0 
 
 for (let i = m; i < pax; i++) {
-  console.log(i)
   if(i%2!=0) {
     continue
   }
+  impares++
   // acima temos: se for impar pare essa iteração e continue o loop
-  // if (i%2 == 0) {
-    //pares++
-  // }
-  pares++
 }
+
+for (let i = m; i < pax; i++) {
+  if (i%2==0) {
+    continue
+  }
+  pares++
+  // acima temos: se for par pare essa iteração e continue o loop
+}
+
+console.log("quantidades de números impares " + impares)
 console.log("quantidades de números pares " + pares)
