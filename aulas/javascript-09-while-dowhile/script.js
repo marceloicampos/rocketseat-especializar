@@ -7,7 +7,7 @@ while (n < 10) {
     //n+=1
 }
 
-console.log('---')
+console.log('---a')
 
 let fatorM = 5
 let multiplicador = 1
@@ -17,7 +17,7 @@ while (multiplicador < 6) {
     console.log(multiplex)
 }
 
-console.log('---')
+console.log('---b')
 
 let fatorF = 1
 let fatorial = 5
@@ -28,7 +28,29 @@ while (fatorial >= 1) {
 }
 console.log(fatorF)
 
-console.log('---')
+console.log('---c')
+
+n = 10
+
+while (n < 10) {
+    console.log('WHILE ' + n)
+    n++
+    //n=n+1
+    //n+=1
+} 
+// acima não entra no While
+
+n = 10
+
+do {
+    console.log('DO WHILE ' + n)
+    n++
+    //n=n+1
+    //n+=1
+} while (n < 10)
+// acima entra no Do While, pois o Do While entra 1 vez na execução
+
+console.log('---d')
 
 n = 0
 m = 1
@@ -43,3 +65,5 @@ do {
 // faça e depois verifique
 // no WHILE não há garantia de execução de loop
 // verifique e depois faça
+
+console.log('---e')
