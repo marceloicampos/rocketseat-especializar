@@ -1,5 +1,5 @@
 // estrutura de repetição ou iterações
-// FOR loops definidos - WHILE loops indefinidos
+// FOR loops definidos - WHILE e DO WHILE loops indefinidos
 
 for (let i = 1; i < 11; i++) {
     // inicial; condição; controle
@@ -17,6 +17,7 @@ for (let i = 1; i < 11; i++) {
         console.log(i + ' é par')
     }
     if (i % 2 != 0) {
+    // if (i % 2 == 1) {
         console.log(i + ' é impar')
     }
 }
