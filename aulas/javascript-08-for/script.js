@@ -37,3 +37,29 @@ for (position in array) {
 for (element of array) {
     console.log('of ' + element)
 }
+
+console.log('---');
+
+let arrayABC = ['a', 'b', 'c', 'd', 'e']
+
+for (let i = 0; i < arrayABC.length; i++) {
+    const element = arrayABC[i];
+    console.log('for ' + element);
+}
+
+arrayABC.forEach(element => {
+    console.log('forEach ' + element);
+});
+
+for (const keyPosition in arrayABC) {
+    if (Object.hasOwnProperty.call(arrayABC, keyPosition)) {
+        const element = arrayABC[keyPosition];
+        const position = keyPosition
+        console.log('for in element ' + element);
+        console.log('for in position ' + position);
+    }
+}
+
+for (const iteratorElement of arrayABC) {
+    console.log('for of ' + iteratorElement);
+}
