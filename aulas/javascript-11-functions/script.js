@@ -27,7 +27,11 @@ function soma() {
     return 2 + 2
 }
 
+let numReturn = soma()
+
 console.log(soma())
+// o console log vai imprimir o retorno da função
+console.log(numReturn)
 
 console.log('---')
 
@@ -47,6 +51,7 @@ function parImpar() {
     let n1 = 3
     let n2 = 7
     let res = n1 * n2
+    console.log('res é ' + res)
     if (res % 2 == 0) {
         return res + ' é par'
     }
@@ -60,7 +65,7 @@ console.log('---')
 
 console.log('FUNÇÕES COM PARÂMETROS')
 
-let valor = 0
+let valor = 1
 
 function add(v) {
     return valor + v
@@ -75,7 +80,7 @@ function somar(a = valorParams, b = valorParams) {
     return a + b
 }
 
-console.log(somar())
+console.log('valor ' + somar())
 
 console.log('---')
 
