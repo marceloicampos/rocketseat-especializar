@@ -179,5 +179,5 @@ const somaSoma = (...values) => {
 }
 
 console.log(somaSoma(10, 5, 15))
-const itensDeValor = [12, 8, 10]
+const itensDeValor = [12, 8, 11]
 console.log(somaSoma(...itensDeValor))
