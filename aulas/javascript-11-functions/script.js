@@ -100,8 +100,8 @@ console.log('somarValores > ' + somarValores(1, 10, 5, 2, 15, 8))
 
 function somarOfValores(...valores) {
     let res = 0
-    for (valor of valores) {
-        res = res + valor
+    for (element of valores) {
+        res = res + element
     }
     return res
 }
@@ -110,8 +110,8 @@ console.log('somarOfValores > ' + somarOfValores(10, 5, 2, 15, 8))
 
 function somarInValores(...valores) {
     let res = 0
-    for (elemento in valores) {
-        res = res + valores[elemento]
+    for (position in valores) {
+        res = res + valores[position]
     }
     return res
 }
