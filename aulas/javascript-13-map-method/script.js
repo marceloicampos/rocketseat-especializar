@@ -14,19 +14,19 @@ console.log(c)
 
 console.log('2-------------')
 
-let el = document.getElementsByTagName('div')
+let htmlElement = document.getElementsByTagName('div')
+console.log(htmlElement)
 
-el = [...el]
+arrayElement = [...htmlElement]
+console.log(arrayElement)
 
-console.log(el)
-
-el.map((el, i) => {
-    console.log(el.innerHTML + ' ' + i)
+arrayElement.map((el, i) => {
+    console.log(el.innerHTML + ' ' + i + ' inner')
 })
 
 console.log('---')
 
-el.map((el, i) => {
+arrayElement.map((el, i) => {
     el.innerHTML = 'Cursos ' + i
     console.log(el.innerHTML)
 })
@@ -39,10 +39,15 @@ console.log(val)
 
 console.log('4-------------')
 
+const mapping = e => e
 const converterInt = e => parseInt(e)
 const dobro = e => e * 2
+let map1 = [1, 2, 3, 4, 5, 6, 7].map(e => e)
+let map2 = [1, 2, 3, 4, 5, 6].map(mapping)
 let num = ['1', '2', '3', '4', '5'].map(converterInt)
 let dob = ['1', '2', '3', '4', '5'].map(dobro)
+console.log(map1 + ' map1')
+console.log(map2 + ' map2')
 console.log(num)
 console.log(dob)
 
