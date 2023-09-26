@@ -49,7 +49,16 @@ function* conta() {
     }
 }
 
-const itc = conta()
-for (let c of itc) {
+const itc1 = conta()
+
+for (let c of itc1) {
     console.log(c);
+}
+
+console.log('---');
+
+const itc2 = conta()
+
+for (let i = 0; i < 5; i++) {
+    console.log(itc2.next().value);
 }
