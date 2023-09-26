@@ -7,7 +7,7 @@ let pessoa = {
 
 pessoa.apresentar()
 
-console.log('---')
+console.log('1---')
 
 let pessoa2 = {
     nome2: 'Caio'
@@ -21,22 +21,24 @@ apresentar2()
 
 // Em resumo, o "this" é uma palavra-chave importante em JavaScript que se refere ao objeto em um determinado contexto ou escopo
 
-console.log('---')
+console.log('2---')
 
 this.name = 'Marcelo'
 console.log(this.name)
 
-console.log('---')
+console.log('3---')
 
 function aluno(nome, nota) {
     this.nome = nome
     this.nota = nota
     console.log(nome + ' ' + nota)
 }
+// this.nome (a variable) is assigned to the element nome
+// este nome (uma variável) é atribuído ao elemento nome
 
 aluno('marcelo', 100)
 
-console.log('---')
+console.log('4---')
 
 function aluno2(nome2, nota2) {
     this.nome2 = nome2
@@ -54,7 +56,7 @@ function aluno2(nome2, nota2) {
 const aluno22 = new aluno2('marcelo2', 102)
 aluno22.dados()
 
-console.log('---')
+console.log('5---')
 
 function aluno3(nome3, nota3) {
     this.nome3 = nome3
